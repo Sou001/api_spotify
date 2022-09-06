@@ -9,6 +9,10 @@
   * Documentation : https://developer.spotify.com/documentation/general/guides/authorization/app-settings/
 
 
+ 2 - Set Redirect URIs in APP settings
+ 
+  * We add the the path : http://Localhost
+
 
 
   
