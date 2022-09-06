@@ -14,7 +14,10 @@
   * We add the the path : http://localhost
 
 
- 3 - Get playlists
+ 3 - Fouille de l'api 
+ 
+  * Dans un premier, nous regardons nos playlits par compte
+  * Ajouter une playlist qui se met à jour quotidiennent : https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks
 
 
   
