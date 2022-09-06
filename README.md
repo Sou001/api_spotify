@@ -11,8 +11,10 @@
 
  2 - Set Redirect URIs in APP settings
  
-  * We add the the path : http://Localhost
+  * We add the the path : http://localhost
 
+
+ 3 - Get playlists
 
 
   
