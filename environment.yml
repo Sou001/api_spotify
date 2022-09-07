@@ -1,0 +1,57 @@
+# https://docs.conda.io/en/latest/miniconda.html ou https://docs.anaconda.com/anaconda/install/windows/ (recommandé pour les utilisateurs de windows)
+# conda install -n base -c conda-forge mamba (depuis conda prompt pour les utilisateurs de windows)
+# mamba env create -f environment.yml
+# conda activate api-spotify
+# jupyter lab
+
+name: api-spotify
+
+channels:
+- conda-forge
+- plotly
+- defaults
+
+dependencies:
+- python=3.7
+- pip
+
+### git
+- git
+
+### bug with conda update : https://stackoverflow.com/questions/69786885/after-conda-update-python-kernel-crashes-when-matplotlib-is-used
+- freetype==2.10.4
+
+### Commun datascience
+- jupyter
+- jupyterlab==3.0.16
+- pandas==1.2.5
+- numpy
+- scipy
+- seaborn==0.11.1
+- plotly==5.0.0
+- scikit-learn=0.23
+- statsmodels=0.12.1
+- matplotlib
+
+### BDD
+- psycopg2
+- ipython-sql
+- sqlalchemy
+- pymongo
+- dnspython # for pymango
+- pyspark
+- elasticsearch
+
+### Prophet/XGBoost
+- prophet==1.0.1
+
+
+### Divers/outils
+- matplotlib-venn
+
+  
+- pip :
+    - binarytree
+    - graphviz
+    - pystan ==2.19.1.1
+    - xgboost==1.4.2
