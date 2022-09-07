@@ -1,4 +1,4 @@
-# Connection to api_spotify with Python
+# Connection to api_spotify with Python 📉
 
   ## This project aims to connect to api spotify using python
   
