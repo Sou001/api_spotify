@@ -1,8 +1,7 @@
 #Playlist class : get info and get the tracks inside a playlist
 import requests
 import pandas as pd
-import datetime
-
+from datetime import datetime
 from Artist import Artist
 
 class Playlist():

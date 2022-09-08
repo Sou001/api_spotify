@@ -16,7 +16,7 @@ def main():
     playlist = client.playlist
 
     ## Lecture du fichier métier contenant les identifiants des playlists
-    id_playlists = pd.read_csv("playlists.csv").id_playlist.values.tolist()
+    id_playlists = pd.read_csv("../data/playlists.csv").id_playlist.values.tolist()
 
     df_table1, df_table2 = playlist.collect_data([playlist.tracks(i) for i in id_playlists], id_playlists)
 
