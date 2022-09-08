@@ -22,6 +22,9 @@ class Playlist():
             'https://api.spotify.com/v1/playlists/' + PlaylistID + '/tracks',
             headers={'Authorization': 'Bearer ' + self.token}
         ).json()["items"]
+
+    def preprocessing(self, df, dct_type):
+        return df.astype(dct_type)
     
     def collect_data(self, playlists_data, id_playlists):
         table1=[]
@@ -42,9 +45,18 @@ class Playlist():
                     
         df_table1 = pd.DataFrame(table1,columns=["id_playlist", "id_artiste","date_entree", "date_sortie"])
         df_table2 = pd.DataFrame(table2,columns=["id_artiste", "nom_artiste", "popularite", "date_effet"])
-        
+        # preprocessing & formattage
+        dtype1= {'id_playlist': 'str',
+                'id_artiste': 'str',
+                'date_entree': 'datetime64',
+                'date_sortie': 'datetime64'}
+        df_table1 = self.preprocessing(df_table1, dtype1)
+        dtype2= {'id_artiste': 'str',
+                'nom_artiste': 'str',
+                'popularite': 'str',
+                'date_effet': 'datetime64'}
+        df_table2 = self.preprocessing(df_table2, dtype2)
         return df_table1, df_table2
 
-    def preprocessing(self, df, dct_type):
-        return df.astype(dct_type)
+    
         
