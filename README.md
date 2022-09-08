@@ -1,7 +1,12 @@
-# Connection to api_spotify with Python 📉
+# Connection to api_spotify with Python 
 
-  ## This project aims to connect to api spotify using python
-  
+### Context of this github 📉
+
+this github is a project that allow its user to connect to one of his spotify apps and collect data of playlists (pre-chosen by adding their ids in playlist csv file in data folder), then insert 2 tables into the specified database (that we call spotify_db but can be modified in constants.py for example) 
+
+
+
+### Set up Spotify app ✅
 
 1 - Create your spotify app or connect to one already created
 
@@ -13,25 +18,41 @@
  
   * We add the the path : http://localhost
 
+### Work environnement - Prerequisites  ⚙️
 
- 3 - Data mining of the API
+  * To set the environnement (librairies,..) to work, use the file in utlls by running : mamba env create -f environment.yml
+  * Should enter the information about the database and spotify app infos (id and secret) in the file /code/class/constants.py or in the right places in /code/notebook/spotify-api.ipynb  📂
  
-  * Firstly, Check the json returned to locate the information that you want to collect from the api
-  * Add the id of the playlists you want to map with the code in the "data/playlists.csv"
 
- 4 - Implement the solution to :
- 
-  * Connect to the spotify API
+### 📁 Organisation:
+```
+│   .gitignore
+│   README.md
+│   
+│
+├───code
+│   ├───sql_db.sql                # contains sql code to create schema of final tables
+│   ├───notebook                  # contains a notebook jupter of all the code in only one file
+│   │   │   api-spotify.ipynb        
+│   │   │ 
+│   └───class                     # contains a structured python project with a main
+│           Auth.py
+│           constants.py
+│           main.py
+│           db_manager.py
+│           playlist.py
+│           utils.py
+│       
+├───data
+│   ├───evolution_popularite.csv  # backup data of one of the final tables
+│   ├───histo_entrees_sorties.csv # backup data of one of the final tables
+│   └───playlists.csv             # contains ids of the playlists we want to map
+│   
+└───utils
+        environment.yml           # contains conf for the env
 
-  * Collect and transform the data to the solution you want. Ours deal with two cases :
-    * Store the entry and exit of artists in each playlist
-    * Daily evolution of popularity of each artist
 
-  * Connect to the DataBase
 
-  * Map the new data collected and structure it to deal with 2 cases :
-    * Append the new data of popularity in the table "artists_popularity"
-    * Deal with the sub cases to keep the history of entries and exits of artists in each playlist (check code)
 
-  
+
 
