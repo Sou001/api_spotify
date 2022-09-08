@@ -1,9 +1,7 @@
-import pandas as pd
-import datetime
-
 from sqlalchemy import create_engine
-
+from datetime import datetime
 from constants import * 
+import pandas as pd
 
 class ManageDb():
 
@@ -16,6 +14,9 @@ class ManageDb():
         self.dbConnection = create_engine(path)
         self.df_table1 = df_table1
         self.df_table2 = df_table2
+
+    def get_connection(self):
+        return self.dbConnection
 
     def update_db(self):
         try :
@@ -58,7 +59,7 @@ class ManageDb():
                 
                 ## si on a bien des nouveaux artistes on les ajoute à l'historique
                 if artistes_to_append.shape[0]>0:
-                    dffinal=pd.concat([artistes_to_append,])
+                    dffinal=pd.concat([artistes_to_append,histo_playlist])
                     
                 else:
                     dffinal=histo_playlist
