@@ -24,7 +24,7 @@ this github is a project that allow its user to connect to one of his spotify ap
   * Should enter the information about the database and spotify app infos (id and secret) in the file /code/class/constants.py or in the right places in /code/notebook/spotify-api.ipynb  📂
  
 
-### 📁 Organisation:
+### Organisation 📁
 ```
 │   .gitignore
 │   README.md
