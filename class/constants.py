@@ -1,0 +1,7 @@
+SPOTIFY_CLIENT_ID = "b169449660ba4fcda1b14088ac05c230"
+SPOTIFY_CLIENT_SECRET = "73b8bc3198ed4fbfbe0952c00d5a4837"
+HOST = "localhost"
+PORT = "5432"
+USER = "postgres"
+PWD = "root"
+DATABASE = "spotify_db"
