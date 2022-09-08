@@ -1,6 +1,6 @@
 
-from Playlist import Playlist
-from ManageDb import ManageDb
+from playlist import Playlist
+from db_manager import ManageDb
 from constants import *
 from Auth import Auth
 import pandas as pd
