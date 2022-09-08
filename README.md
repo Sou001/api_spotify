@@ -26,7 +26,7 @@ this github is a project that allow its user to connect to one of his spotify ap
 
 ### Organisation 📁
 ```
-│   .gitignore
+│
 │   README.md
 │   
 │
