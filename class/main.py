@@ -2,6 +2,7 @@ import pandas as pd
 
 from Auth import Auth
 from Client import Client
+from ManageDb import ManageDb
 
 from constants import *
 
@@ -17,3 +18,6 @@ playlist = client.playlist
 id_playlists = pd.read_csv("playlists.csv").id_playlist.values.tolist()
 
 df_table1, df_table2 = playlist.collect_data([playlist.tracks(i) for i in id_playlists], id_playlists)
+
+co = ManageDb(df_table1, df_table2)
+co.update_db()
