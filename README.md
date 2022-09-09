@@ -52,13 +52,14 @@ api_spotify
 ├── README.md
 │   
 ├── tests
-│   ├── test_api_spotify.py
+│   ├── test_api_spotify.py        # Include tests with 100% coverage 
 │   └── __init__.py
 │   
 └── utils
     └── environment.yml            # contains conf for the env
 
 
-
+## Tests coverage 
+![image](https://user-images.githubusercontent.com/45198860/189374980-9601b952-383d-4394-8c87-2cd9bb81dfcd.png)
 
 
