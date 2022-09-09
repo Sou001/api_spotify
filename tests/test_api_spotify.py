@@ -1,5 +1,4 @@
 import pandas as pd
-import json
 
 from api_spotify.playlist import Playlist
 from api_spotify.Auth import Auth
