@@ -8,29 +8,20 @@ class Playlist():
     def __init__(self, token: str):
         self.token = token
 
+    def get_json(self,url):
+        ''' return json from url '''
+        return requests.request('GET',url,headers={'Authorization': 'Bearer ' + self.token}).json()
+
     def get_playlist(self, PlaylistID: str):
         ''' return json of a playlist's info '''
-        return requests.request(
-            'GET',
-            'https://api.spotify.com/v1/playlists/' + PlaylistID,
-            headers={'Authorization': 'Bearer ' + self.token}
-        ).json()
+        return self.get_json('https://api.spotify.com/v1/playlists/' + PlaylistID)
 
     def get_tracks(self, PlaylistID: str):
-        ''' return json of playlist's tracks information '''
-        return requests.request(
-            'GET',
-            'https://api.spotify.com/v1/playlists/' + PlaylistID + '/tracks',
-            headers={'Authorization': 'Bearer ' + self.token}
-        ).json()["items"]
+        ''' return list of playlist's tracks information in dict format '''
+        return self.get_json('https://api.spotify.com/v1/playlists/' + PlaylistID + '/tracks')["items"]
 
-    def get_popularity(self, artist_url):
-        ''' Return the popularity of an artist '''
-        return requests.request(
-            'GET',
-            artist_url,
-            headers={'Authorization': 'Bearer ' + self.token}
-        ).json()["popularity"]
+    def get_popularity(self,artiste_url):
+        return self.get_json(artiste_url)["popularity"]
 
     def convert_data_types(self, df, dct_type):
         ''' convert type of columns of a dataframe '''
@@ -48,6 +39,7 @@ class Playlist():
             id_playlist=id_playlists[i]
             
             for track in playlists_data[i]: 
+
                 for artiste in track["track"]["artists"]:
 
                     idartiste = artiste["id"]
@@ -56,13 +48,15 @@ class Playlist():
                     table1.append([id_playlist,idartiste,datetime.now(),'2099-12-31 00:00:00'])
 
                     ## La 2ème table
-                    popularity = self.get_popularity(artiste["href"])
-                    table2.append([idartiste,name,popularity,datetime.now()])
+                    #popularity = self.get_json()
+                    table2.append([idartiste,
+                                   name,
+                                   self.get_popularity(artiste["href"]),
+                                   datetime.now()])
 
         ## we drop duplicates because an artist can appear more than once in a playlist          
         df_table1 = pd.DataFrame(table1,columns=["id_playlist", "id_artiste",
-                                                 "date_entree", "date_sortie"]).drop_duplicates(
-                                                    subset=["id_playlist", "id_artiste"])
+                                                 "date_entree", "date_sortie"]).drop_duplicates(subset=["id_playlist", "id_artiste"])
 
         ## we drop duplicates because an artist can appear multiple times in a playlist/S
         df_table2 = pd.DataFrame(table2,columns=["id_artiste", "nom_artiste", 

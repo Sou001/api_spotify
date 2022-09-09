@@ -10,7 +10,6 @@ def main():
     
     # Authentification and get token
     token = Auth(SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET).get_token()
-    print(token)
 
     ## Lecture du fichier métier contenant les identifiants des playlists
     id_playlists = pd.read_csv("../data/playlists.csv").id_playlist.values.tolist()
