@@ -22,6 +22,11 @@ this github is a project that allow its user to connect to one of his spotify ap
 
   * To set the environnement (librairies,..) to work, use the file in utlls by running : mamba env create -f environment.yml
   * Should enter the information about the database and spotify app infos (id and secret) in the file /code/class/constants.py or in the right places in /code/notebook/spotify-api.ipynb  📂
+
+
+## Tests coverage 
+![image](https://user-images.githubusercontent.com/45198860/189374980-9601b952-383d-4394-8c87-2cd9bb81dfcd.png)
+
  
 
 ### Organisation 📁
@@ -59,7 +64,5 @@ api_spotify
     └── environment.yml            # contains conf for the env
 
 
-## Tests coverage 
-![image](https://user-images.githubusercontent.com/45198860/189374980-9601b952-383d-4394-8c87-2cd9bb81dfcd.png)
 
 
