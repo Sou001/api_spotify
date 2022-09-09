@@ -12,16 +12,13 @@ class Playlist():
         ''' return json from url '''
         return requests.request('GET',url,headers={'Authorization': 'Bearer ' + self.token}).json()
 
-    def get_playlist(self, PlaylistID: str):
-        ''' return json of a playlist's info '''
-        return self.get_json('https://api.spotify.com/v1/playlists/' + PlaylistID)
-
     def get_tracks(self, PlaylistID: str):
         ''' return list of playlist's tracks information in dict format '''
         return self.get_json('https://api.spotify.com/v1/playlists/' + PlaylistID + '/tracks')["items"]
 
-    def get_popularity(self,artiste_url):
-        return self.get_json(artiste_url)["popularity"]
+    def get_popularity(self,artist_data):
+       # return self.get_json(artiste_url)["popularity"]
+       return artist_data["popularity"]
 
     def convert_data_types(self, df, dct_type):
         ''' convert type of columns of a dataframe '''
@@ -49,9 +46,10 @@ class Playlist():
 
                     ## La 2ème table
                     #popularity = self.get_json()
+                    artist_data = self.get_json(artiste["href"])
                     table2.append([idartiste,
                                    name,
-                                   self.get_popularity(artiste["href"]),
+                                   self.get_popularity(artist_data),
                                    datetime.now()])
 
         ## we drop duplicates because an artist can appear more than once in a playlist          
@@ -73,6 +71,3 @@ class Playlist():
                                                     'popularite': 'str',
                                                     'date_effet': 'datetime64'})
         return df_table1, df_table2
-
-    
-        
