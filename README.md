@@ -26,31 +26,37 @@ this github is a project that allow its user to connect to one of his spotify ap
 
 ### Organisation 📁
 ```
-│
-│   README.md
-│   
-│
-├───code
-│   ├───sql_db.sql                # contains sql code to create schema of final tables
-│   ├───notebook                  # contains a notebook jupter of all the code in only one file
-│   │   │   api-spotify.ipynb        
-│   │   │ 
-│   └───class                     # contains a structured python project with a main
-│           Auth.py
-│           constants.py
-│           main.py
-│           db_manager.py
-│           playlist.py
-│           utils.py
-│       
-├───data
-│   ├───evolution_popularite.csv  # backup data of one of the final tables
-│   ├───histo_entrees_sorties.csv # backup data of one of the final tables
-│   └───playlists.csv             # contains ids of the playlists we want to map
-│   
-└───utils
-        environment.yml           # contains conf for the env
 
+api_spotify
+├── api_spotify                    # Python app if you launch 
+│   ├── Auth.py
+│   ├── constants.py
+│   ├── db_manager.py
+│   ├── main.py
+│   ├── playlist.py
+│   ├── utils.py
+│   └── __init__.py
+│   
+├── code
+│   ├── notebook                   # contains sql code to create schema of final tables
+│   │   └── api_spotify.ipynb
+│   └── sql_db.sql                 # contains sql code to create schema of final tables
+│   
+├── data
+│   ├── evolution_popularite.csv   # backup data of one of the final tables
+│   ├── histo_entrees_sorties.csv  # backup data of one of the final tables
+│   └── playlists.csv              # contains ids of the playlists we want to map
+│   
+├── pyproject.toml                 # Same as yml, just initialized with peotry 
+│   
+├── README.md
+│   
+├── tests
+│   ├── test_api_spotify.py
+│   └── __init__.py
+│   
+└── utils
+    └── environment.yml            # contains conf for the env
 
 
 
