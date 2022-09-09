@@ -31,9 +31,7 @@ class ManageDb():
             
                                 #####################################################################
             try :
-                ## Récupéraiton de l'historique des entrées sorties d'artistes des playlists du métier et seulement ceux toujours dispo
-                histo_playlist=pd.read_sql("select * from histo_playlist where date_sortie ='2099-12-31'", self.dbConnection)
-
+            
                 ## on crée une clé sur la playlist artistes dans la table histo
                 histo_playlist["artiste_histo"]=histo_playlist[["id_playlist","id_artiste"]].apply(lambda x:
                                                                                                 x.id_playlist+x.id_artiste,
