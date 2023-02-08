@@ -33,7 +33,7 @@ class ManageDb():
             try :
             
                 ## on crée une clé sur la playlist artistes dans la table histo
-                histo_playlist["artiste_histo"]=histo_playlist[["id_playlist","id_artiste"]].apply(lambda x:
+                histo_playlist["artist<e_histo"]=histo_playlist[["id_playlist","id_artiste"]].apply(lambda x:
                                                                                                 x.id_playlist+x.id_artiste,
                                                                                                 axis=1)
 
